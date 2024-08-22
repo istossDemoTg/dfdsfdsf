@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IsToss</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .menu {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #333;
+            color: white;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+        .menu a {
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 22px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .menu a:hover {
+            background-color: #575757;
+        }
+        .menu .user-info,
+        .menu .subscription {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu .user-info p,
+        .menu .subscription p {
+            margin: 0;
+        }
+        #menu:target {
+            left: 0;
+        }
+        .open-menu-btn {
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            text-decoration: none;
+        }
+        .form-container {
+            padding: 20px;
+            margin: 100px auto;
+            max-width: 400px;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-container input[type="text"],
+        .form-container select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        .form-container input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .start-attack-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            background-color: #333;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .start-attack-btn:hover {
+            background-color: #575757;
+        }
+    </style>
+</head>
+<body>
+
+  
+
+    <div id="menu" class="menu">
+        <div class="user-info">
+            <p><b>Guest</b></p>
+        </div>
+        <div class="subscription">
+            <p><b>Plan: Demo</b></p>
+        </div>
+        <a href="#menu-closed">Exit TOR network.</a>
+        <a href="#menu-closed">Start TOR by default.</a>
+        <a href="#menu-closed">Add proxy.</a>
+        <a href="#menu-closed">WH Group Dumper.</a>
+        <a href="#menu-closed">TG Group Dumper.</a>
+        <a href="#menu-closed">Inf 2.0</a>
+        <a href="#menu-closed">Inf 3.0</a>
+        <a href="#menu-closed">TOS</a>
+        <a href="#menu-closed">IsToss</a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#menu-closed">Log Out</a>
+    </div>
+
+    <a href="#menu" class="open-menu-btn">☰ Menu</a>
+    <a href="#menu-closed" id="menu-closed" class="open-menu-btn" style="display:none;"></a>
+
+    <br><br><br>
+
+    <div align="center">
+        <img src="IsToss.gif" alt="Is Toss GIF">
+    </div>
+
+    <br>
+    <br>
+
+    <div align="center">
+
+      <b>Verify demo account link:</b>
+    <br>
+    <br>
+
+      <a href="https://www.instagram.com/hilov4u/">@hilov4u</a>
+    <br>
+    <br>
+      <a href="https://www.instagram.com/pote2909xw/">@pote2909xw</a>
+    <br>
+    <br>
+      <a href="https://www.instagram.com/account4showcase">@account4showcase</a>
+    </div>
+
+    <div class="form-container">
+        <label for="nickname">Select Nickname:</label>
+        <select id="nickname">
+            <option value="@hilov4u">@hilov4u</option>
+            <option value="@pote2909xw">@pote2909xw</option>
+            <option value="@account4showcase">@account4showcase</option>
+        </select>
+
+        <label for="thread-number">Thread Number:</label>
+        <input type="text" id="thread-number" placeholder="max 250">
+
+        <label>
+            <input type="checkbox" id="tor-network"> Use Tor Network (optional)
+        </label>
+
+        <!-- Start Attack Button -->
+        <a href="#menu-closed" class="start-attack-btn" onclick="sendMessage()">Start Attack</a>
+    </div>
+
+
+    <script>
+        function sendMessage() {
+            var nickname = document.getElementById("nickname").value;
+            var token = '7506437133:AAHn3EFAhQoBLZlsHNiOguRWIqR7n2baYpI';
+            var chat_id = '620170936';
+            var text = 'Selected Nickname: ' + nickname;
+
+            var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert('Attack started, please wait ~40 minutes.');
+                    } else {
+                        alert('Failed to send message: ' + data.description);
+                    }
+                })
+                .catch(error => {
+                    alert('Error sending message: ' + error);
+                });
+        }
+    </script>
+</body>
+</html>
+
